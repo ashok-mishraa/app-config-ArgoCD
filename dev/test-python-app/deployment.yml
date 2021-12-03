@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-python-app
+  namespace: concourse-codeathon-2021 
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: test-python-app
+  template:
+    metadata:
+      labels:
+        app: test-python-app
+    spec:
+      containers:
+      - image: ashokkumar54/python-application-concourse:latest
+        name: test-python-app
+        ports:
+        - containerPort: 5000

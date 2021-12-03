@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-java-app
+  namespace: concourse-codeathon-2021 
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: test-java-app
+  template:
+    metadata:
+      labels:
+        app: test-java-app
+    spec:
+      containers:
+      - image: ashokkumar54/java-application-concourse:latest
+        name: test-java-app
+        ports:
+        - containerPort: 8080

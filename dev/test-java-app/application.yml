@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-app-test-java-app
+  namespace: argocd
+spec:
+  project: concourse-codeathon-2021
+
+  source:
+    repoURL: https://github.com/ashok-mishraa/app-config-ArgoCD.git
+    targetRevision: HEAD
+    path: dev/test-java-app
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: concourse-codeathon-2021
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: false
+      prune: false

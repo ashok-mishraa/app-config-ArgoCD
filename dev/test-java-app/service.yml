@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: test-java-app
+  namespace: concourse-codeathon-2021
+spec:
+  ports:
+  - port: 80
+    targetPort: 8080
+  selector:
+    app: test-java-app
