@@ -20,13 +20,13 @@ def updateManifest(environment, application, no_of_containers, tags):
 
 def main():
     parser = argparse.ArgumentParser(description='Application for updating the manifest file.')
-    parser.add_argument('--e', "--environment", type=str, help='name of the environment', required=True)
-    parser.add_argument('--n', "--no_of_containers", type=int, help='name of the environment', required=True)
-    parser.add_argument('--a', "--application", type=str, help='name of the application', required=True)
-    parser.add_argument('--t', "--tags", type=str, help='Tags of container separated by comma', required=True)
+    parser.add_argument('-e', "--environment", type=str, help='name of the environment', required=True)
+    parser.add_argument('-n', "--no_of_containers", type=int, help='name of the environment', required=True)
+    parser.add_argument('-a', "--application", type=str, help='name of the application', required=True)
+    parser.add_argument('-t', "--tags", type=str, help='Tags of container separated by comma', required=True)
     args = parser.parse_args()
-    app_tags = args.t.split(',')
-    updateManifest(args.e, args.a, args.n, app_tags)
+    app_tags = args.tags.split(',')
+    updateManifest(args.environment, args.application, args.no_of_containers, app_tags)
 
 if __name__ == "__main__":
     main()
