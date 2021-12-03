@@ -4,7 +4,7 @@ import argparse
 import yaml
 
 def updateManifest(environment, application, no_of_containers, tags):
-    fileName = "".join([environment, "/", application, "/deployment.yml"])
+    fileName = "".join(["git/git_manifest/", environment, "/", application, "/deployment.yml"])
     for i in range(no_of_containers):
         with open(fileName) as f:
             data = yaml.load(f, Loader=yaml.FullLoader)
