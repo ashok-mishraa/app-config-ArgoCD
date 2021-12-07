@@ -4,7 +4,7 @@ metadata:
   name: test-python-app
   namespace: concourse-codeathon-2021 
 spec:
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
